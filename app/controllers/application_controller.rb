@@ -4,11 +4,16 @@ class ApplicationController < ActionController::Base
   # Add your actions below this line
   # ================================
 
-  def play_rock
-    index = rand(3)
-    moves = ["rock", "paper", "scissors"]
+  def homepage
+    render({ :template => "game_templates/rules.html.erb"})
+  end
 
-    @comp_move = moves.at(index)
+  def play_rock
+    # index = rand(3)
+    # moves = ["rock", "paper", "scissors"]
+
+    @comp_move = ["rock", "paper", "scissors"].sample
+    # moves.at(index)
 
     if @comp_move == "rock"
       @outcome = "tied"
